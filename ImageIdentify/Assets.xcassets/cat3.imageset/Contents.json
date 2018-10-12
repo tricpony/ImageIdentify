@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "stretch",
+          "width" : 20,
+          "height" : 20
+        },
+        "cap-insets" : {
+          "bottom" : 75,
+          "top" : 25,
+          "right" : 75,
+          "left" : 25
+        }
+      },
+      "idiom" : "universal",
+      "filename" : "cats-q-c-200-200-4.jpg",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}
