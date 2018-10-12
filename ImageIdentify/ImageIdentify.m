@@ -72,7 +72,7 @@
         if (sha) {
             NSDictionary *info = nil;
             
-            info = @{@"filename":[nextPath lastPathComponent],@"image_sha":sha,@"rep":rep};
+            info = @{@"filename":[nextPath lastPathComponent],@"image_sha":sha};
             [assetInfo addObject:info];
         }
     }
@@ -102,17 +102,18 @@
     UIImageView *imageView = (id)view;
     UIImage *image = imageView.image;
     NSDictionary *info;
-    NSData *imageDataPngRep;
     NSData *imageDataJpgRep;
     NSString *imageName;
     BOOL isMatch = NO;
     NSPredicate *q;
     
-    imageDataPngRep = UIImagePNGRepresentation(image);
     imageDataJpgRep = UIImageJPEGRepresentation(image, 0.9);
     q = [NSPredicate predicateWithFormat:@"image_sha = %@", [[self class] shaForData:imageDataJpgRep]];
     info = [[self.assetInfo filteredArrayUsingPredicate:q] lastObject];
     if (!info) {
+        NSData *imageDataPngRep;
+
+        imageDataPngRep = UIImagePNGRepresentation(image);
         q = [NSPredicate predicateWithFormat:@"image_sha = %@", [[self class] shaForData:imageDataPngRep]];
         info = [[self.assetInfo filteredArrayUsingPredicate:q] lastObject];
 
